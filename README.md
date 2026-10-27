@@ -1,24 +1,25 @@
-# Soumya Web Studio — Fixed Full-Stack Package
+# Anand Soum Studio
 
-Flask + SQLite website with responsive frontend, working navigation, sliding sidebar, project enquiry form, WhatsApp handoff, and admin API.
+A responsive studio landing page made with plain HTML, CSS, and JavaScript.
 
-## Run
+## Website files
+- `index.html` — complete responsive landing page, styles, and mobile navigation
+- `netlify.toml` — Netlify static-site configuration
 
-Python 3.10+ recommended. In this folder run:
+## Deploy the website on Netlify
+1. Sign in at https://app.netlify.com/
+2. Select **Add new site** → **Import an existing project**.
+3. Connect GitHub and choose `soumya-mishra1913/Saumya-and-Anant-development`.
+4. Build command: leave empty.
+5. Publish directory: `.`
+6. Select **Deploy site**.
 
-```bash
-pip install -r requirements.txt
-python app.py
-```
+Netlify can automatically redeploy after later commits to the connected branch.
 
-Then open http://127.0.0.1:5000. The SQLite database is created automatically as `studio.db`.
+## Before going live
+- In `index.html`, replace `YOUR-STUDIO-EMAIL@example.com` with a studio email approved for public use.
+- Check that the team names and studio name are correct.
+- Avoid publishing personal phone numbers or a home address.
 
-## Verify
-
-Open `http://127.0.0.1:5000/api/health`; expected JSON: `{"status":"ok","database":"connected"}`.
-
-## Admin API
-
-Admin routes are disabled unless you configure `ADMIN_DEMO_KEY` as an environment variable. Never expose a demo key publicly. Before deployment add proper login, CSRF protection, rate limiting, HTTPS, privacy notice, and backups.
-
-If the page still returns a 500, read the traceback in the terminal where `python app.py` is running. Confirm the extracted folder still contains `templates/index.html` and `static/style.css` and `static/app.js`.
+## Note
+This Netlify setup publishes the static landing page. It does not run a Flask/Python backend or database; those need a separate backend host if you later decide to use those features.
